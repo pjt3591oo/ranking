@@ -1,13 +1,23 @@
 # simple ranking server
 this project is simple ranking server
+and crypto test
+and file upload test
+
 
 # stack
+
+- ranking 
 
 ```
 server : node.js
 framework : express
 database : mysql
 orm library : sequelize
+```
+
+- file upload
+```
+library : multer
 ```
 
 # 서버실행
@@ -48,12 +58,19 @@ endpoint : /admin
 endpoint : /api_v1
 ```
 
-- 유저 등록하기
-- 유저 리스트 가져오기
-- 유저 랭킹 가져오기
-- 점수 등록하기
-- 유저 점수기록 가져오기
-- crypto test
+- 랭킹
+    - 유저 등록하기
+    - 유저 리스트 가져오기
+    - 유저 랭킹 가져오기
+    - 점수 등록하기
+    - 유저 점수기록 가져오기
+
+- 암호화
+    - crypto
+
+- 파일
+    - 업로드 페이지 접속
+    - 파일 업로드
 
 ### 3. API 설 명
 
@@ -199,3 +216,33 @@ SELECT * FROM userScore WHERE userId = userId;
 - 기능 : crypto test
 - path : /user/crypto
 - method : `GET`
+
+
+#### 업로드 페이지 접속
+- 기능 : 파일 업로드 할 수있는 페이지 띄어준다
+- path : /file
+- method : `GET`
+
+#### 파일 업로드
+
+- 기능 : 파일 업로드를 한다
+- path : /file
+- method : `POST`
+- encode type : `multipart/form-data`
+
+- request
+
+```html
+ <form action="/api_v1/file" enctype="multipart/form-data" method="post">
+    <input type="file" name="frogArray" />
+    <input type="file" name="frogArray" />
+</form>
+```
+
+- response
+```
+status code : 200, 201
+
+200 => 저장이 되지 않았을 경우
+201 => 정상적으로 저장이 됬을 경우
+```

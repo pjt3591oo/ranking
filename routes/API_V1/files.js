@@ -19,10 +19,8 @@ router.get('/', (req, res)=>{
     });
 })
 
-router.post('/',
-    frogUpload,    
-    (req, res)=>{
-        res.end('file upload');
+router.post('/', frogUpload, (req, res)=>{
+    res.status(201).end('file upload');
 })
 
 
